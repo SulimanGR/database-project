@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Calculator</title>
+    <link rel="stylesheet" href="css/calc-page.css">
+</head>
+
+<body id="calc-page">
+    <script>
+        // Check if the user is logged in
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('You need to log in first!');
+            window.location.href = 'login.html'; // Redirect to the login page
+        }
+    </script>
+
+    <img src="/img/SDFA guide.jpg" class="brochure">
+    <h1 id="heading">Nutrition Calculator</h1>
+    <form id="nutritionForm">
+        <input type="number" id="age" name="age" required placeholder="Enter your age"><br><br>
+
+        <input type="number" id="height" name="height" required placeholder="Enter your height (cm)"><br><br>
+
+        <input type="number" id="weight" name="weight" required placeholder="Enter your weight (kg)"><br><br>
+
+        <button type="button" id="calc-button" onclick="calculateDailyNeeds()">Calculate</button>
+        <button class="go-back" onclick="window.location.href='index.html'">Go Back</button>
+
+        <span style="font-size: medium;"><strong><u>Note:</u> </strong>actual needs may vary based on individual factors
+            such
+            as
+            metabolism,
+            muscle mass, and overall
+            health status </span>
+    </form>
+    <div id="result"></div>
+
+    <script src="calculator.js"></script>
+</body>
+
+</html>

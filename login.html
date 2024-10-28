@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/loginPage.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="error-message" id="error-message">Invalid phone number or password</div>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="login-button">Login</button>
+        <a href="registerPage.html"><button class="register-button">Register</button></a>
+    </div>
+
+    <script src="fetch.js"></script>
+</body>
+</html>

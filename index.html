@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WellWise</title>
+  <link rel="stylesheet" href="/css/main-page.css">
+</head>
+
+<body id="bg-style">
+
+  <h1 class="main-title">Find Your Food Using WellWise for Nutritional Search!</h1>
+
+  <div class="search-bar">
+    <div>
+      <input type="text" name="calories" class="input" pattern="\d+" placeholder="Enter Calories">
+    </div>
+    <div>
+      <input type="text" name="protein" class="input" pattern="\d+" placeholder="Enter Protein g">
+    </div>
+    <div>
+      <input type="text" name="carbohydrates" class="input" pattern="\d+" placeholder="Enter Carbohydrates g">
+    </div>
+    <button id="search">
+      <span>Search</span>
+    </button>
+  </div>
+
+  <div>
+    <button id="calc-button" onclick="window.location.href='calcPage.html'">Calculator</button>
+    <button id="logout-button">Logout</button> 
+  </div>
+
+  <div id="dataContainer" class="data-container"></div> <!-- Container for data -->
+
+  <!-- Pagination controls -->
+  <div class="pagination">
+    <button id="prevPage">Previous</button>
+    <span id="currentPage">Page 1</span>
+    <button id="nextPage">Next</button>
+  </div>
+
+  <script src="fetch.js"></script> <!-- JavaScript file -->
+  
+</body>
+
+</html>
