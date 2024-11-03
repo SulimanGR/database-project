@@ -1,0 +1,58 @@
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background for contrast */
+    backdrop-filter: blur(5px); /* Optional: add a blur effect */
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 30px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    width: 90%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Max width for larger screens */
+    animation: slideIn 0.3s ease; /* Slide-in animation */
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #333;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.close:hover,
+.close:focus {
+    color: #e74c3c; /* Red color on hover */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Optional: Style for the popup text */
+.popup-content p {
+    font-size: 16px;
+    color: #444; /* Darker text color */
+    line-height: 1.5; /* Improved line spacing */
+}

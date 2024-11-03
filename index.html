@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <title>WellWise</title>
-  <link rel="stylesheet" href="/css/main-page.css">
+  <link rel="stylesheet" href="css/main-page.css">
+  <link rel="stylesheet" href="css/popup.css"> <!-- Add this line -->
 </head>
 
 <body id="bg-style">
 
-  <h1 class="main-title">Find Your Food Using WellWise for Nutritional Search!</h1>
+  <h1 class="main-title">Find Your Food and order Using WellWise for Nutritional Search!</h1>
 
   <div class="search-bar">
     <div>
@@ -40,7 +41,16 @@
     <button id="nextPage">Next</button>
   </div>
 
+  <!-- Popup structure -->
+  <div id="popup" class="popup">
+      <div class="popup-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <strong><p>Your order is being prepared!</p></strong>
+      </div>
+  </div>
+
   <script src="fetch.js"></script> <!-- JavaScript file -->
+  <script src="popup.js"></script> <!-- Popup JavaScript file -->
   
 </body>
 

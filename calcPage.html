@@ -27,15 +27,28 @@
 
         <input type="number" id="weight" name="weight" required placeholder="Enter your weight (kg)"><br><br>
 
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="male" checked> Male
+        <input type="radio" name="gender" value="female"> Female<br><br>
+
+        <label for="activityLevel">Activity Level:</label>
+        <select id="activityLevel">
+            <option value="1.2">Sedentary (little or no exercise)</option>
+            <option value="1.375">Lightly Active (light exercise/sports 1-3 days a week)</option>
+            <option value="1.55">Moderately Active (moderate exercise/sports 3-5 days a week)</option>
+            <option value="1.725">Very Active (hard exercise/sports 6-7 days a week)</option>
+            <option value="1.9">Super Active (very hard exercise/physical job & exercise 2x a day)</option>
+        </select><br><br>
+
+        <label>Weight Goal:</label>
+        <input type="radio" name="goal" value="maintain" checked> Maintain
+        <input type="radio" name="goal" value="lose"> Lose Weight
+        <input type="radio" name="goal" value="gain"> Gain Weight<br><br>
+
         <button type="button" id="calc-button" onclick="calculateDailyNeeds()">Calculate</button>
         <button class="go-back" onclick="window.location.href='index.html'">Go Back</button>
 
-        <span style="font-size: medium;"><strong><u>Note:</u> </strong>actual needs may vary based on individual factors
-            such
-            as
-            metabolism,
-            muscle mass, and overall
-            health status </span>
+        <span style="font-size: medium;"><strong><u>Note:</u> </strong>actual needs may vary based on individual factors such as metabolism, muscle mass, and overall health status this is just an estimation. </span>
     </form>
     <div id="result"></div>
 

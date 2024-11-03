@@ -108,38 +108,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render function to display data
-    function renderData(data) {
-        const dataContainer = document.getElementById('dataContainer');
-        dataContainer.innerHTML = '';
+function renderData(data) {
+    const dataContainer = document.getElementById('dataContainer');
+    dataContainer.innerHTML = '';
 
-        data.forEach(item => {
-            const itemDiv = document.createElement('div');
-            itemDiv.className = 'item';
+    data.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'item';
+        
+        itemDiv.onclick = () => {
+            showPopup(); // Show the popup when an item is clicked
+            // You can add additional logic here if needed, such as storing item details
+        };
 
-            const itemName = document.createElement('h2');
-            itemName.textContent = item.name;
+        const itemName = document.createElement('h2');
+        itemName.textContent = item.name;
 
-            const itemCalories = document.createElement('p');
-            itemCalories.textContent = `Calories: ${item.calories}`;
+        const itemCalories = document.createElement('p');
+        itemCalories.textContent = `Calories: ${item.calories}`;
 
-            const itemCarbohydrates = document.createElement('p');
-            itemCarbohydrates.textContent = `Carbohydrates: ${item.carbohydrates}`;
+        const itemCarbohydrates = document.createElement('p');
+        itemCarbohydrates.textContent = `Carbohydrates: ${item.carbohydrates}`;
 
-            const itemProtein = document.createElement('p');
-            itemProtein.textContent = `Protein: ${item.protein}`;
+        const itemProtein = document.createElement('p');
+        itemProtein.textContent = `Protein: ${item.protein}`;
 
-            const itemSource = document.createElement('p');
-            itemSource.textContent = `Source: ${item.source}`;
+        const itemSource = document.createElement('p');
+        itemSource.textContent = `Source: ${item.source}`;
 
-            itemDiv.appendChild(itemName);
-            itemDiv.appendChild(itemCalories);
-            itemDiv.appendChild(itemCarbohydrates);
-            itemDiv.appendChild(itemProtein);
-            itemDiv.appendChild(itemSource);
+        itemDiv.appendChild(itemName);
+        itemDiv.appendChild(itemCalories);
+        itemDiv.appendChild(itemCarbohydrates);
+        itemDiv.appendChild(itemProtein);
+        itemDiv.appendChild(itemSource);
 
-            dataContainer.appendChild(itemDiv);
-        });
-    }
+        dataContainer.appendChild(itemDiv);
+    });
+}
+
 
     // Pagination controls
     document.getElementById('prevPage').addEventListener('click', () => {
