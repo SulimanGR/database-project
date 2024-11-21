@@ -6,6 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const phone = document.getElementById('phone').value; // Use phone number instead of username
         const password = document.getElementById('password').value;
 
+        // Client-side validation
+        if (!fullname || fullname.trim() === '') {
+            alert('Full name is required!');
+            return;
+        }
+
+        const phoneRegex = /^[0-9]{10}$/; // Validate if the phone number is 10 digits
+        if (!phone || !phoneRegex.test(phone)) {
+            alert('Please enter a valid 10-digit phone number');
+            return;
+        }
+
+        if (password.length < 6) {
+            alert('Password must be at least 6 characters long!');
+            return;
+        }
+
         fetch('http://localhost:2000/register', {
             method: 'POST',
             headers: {

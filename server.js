@@ -35,26 +35,41 @@ db.connect(err => {
 app.post('/register', (req, res) => {
     const { fullname, phone, password } = req.body;
 
+    // Basic field validation
     if (!fullname || !phone || !password) {
         return res.status(400).json({ success: false, message: 'All fields are required' });
     }
 
+    // Validate phone number format (e.g., 10 digits)
+    const phoneRegex = /^[0-9]{10}$/; // Adjust regex as needed
+    if (!phoneRegex.test(phone)) {
+        return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit phone number' });
+    }
+
+    // Validate password length (at least 6 characters)
+    if (password.length < 6) {
+        return res.status(400).json({ success: false, message: 'Password must be at least 6 characters long' });
+    }
+
+    // Hash password
     bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
             console.error('Error hashing password:', err);
-            return res.status(500).json({ success: false, message: 'The Phone number or the name is already registered' });
+            return res.status(500).json({ success: false, message: 'Error hashing password' });
         }
 
+        // Insert into the database
         const query = 'INSERT INTO users (fullname, phone, password) VALUES (?, ?, ?)';
         db.query(query, [fullname, phone, hash], (err, result) => {
             if (err) {
                 console.error('Error inserting data:', err);
-                return res.status(500).json({ success: false, message: 'The Phone number or the name is already registered' });
+                return res.status(500).json({ success: false, message: 'The phone number or name is already registered' });
             }
             res.json({ success: true, message: 'User registered successfully' });
         });
     });
 });
+
 
 // API endpoint for login
 app.post('/login', (req, res) => {
@@ -118,7 +133,7 @@ app.get('/index', authenticateToken, (req, res) => {
 
 // Route to fetch data from the meals table with pagination and filtering
 app.get('/data', (req, res) => {
-    const { page = 1, limit = 10, calories, protein, carbohydrates } = req.query;
+    const { page = 1, limit = 15, calories, protein, carbohydrates } = req.query;
     let query = 'SELECT COUNT(*) AS totalRecords FROM meals WHERE 1=1';
 
     if (calories) {
